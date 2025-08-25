@@ -1,0 +1,70 @@
+from heapq import heappush, heappop
+
+goal_state = '123456780'  # Goal state as a string
+
+# Moves: U, D, L, R (Up, Down, Left, Right)
+moves = {
+    'U': -3,
+    'D': 3,
+    'L': -1,
+    'R': 1
+}
+
+# Prevents invalid moves from wrapping rows
+invalid_moves = {
+    0: ['U', 'L'], 1: ['U'], 2: ['U', 'R'],
+    3: ['L'],        5: ['R'],
+    6: ['D', 'L'], 7: ['D'], 8: ['D', 'R']
+}
+
+# Heuristic: Count of misplaced tiles (excluding '0')
+def misplaced_tiles(state):
+    return sum(1 for i in range(9) if state[i] != goal_state[i] and state[i] != '0')
+
+# Move the blank (0) in the given direction
+def move_tile(state, direction):
+    index = state.index('0')
+    if direction in invalid_moves.get(index, []):
+        return None
+    new_index = index + moves[direction]
+    if new_index < 0 or new_index >= 9:
+        return None
+    state_list = list(state)
+    state_list[index], state_list[new_index] = state_list[new_index], state_list[index]
+    return ''.join(state_list)
+
+# Greedy Best-First Search using misplaced tiles
+def greedy_bfs(start_state):
+    visited = set()
+    # Heap queue: (heuristic value, state, path)
+    heap = []
+    heappush(heap, (misplaced_tiles(start_state), start_state, []))
+
+    while heap:
+        h, current_state, path = heappop(heap)
+
+        if current_state == goal_state:
+            return path
+
+        visited.add(current_state)
+
+        for direction in moves:
+            new_state = move_tile(current_state, direction)
+            if new_state and new_state not in visited:
+                heappush(heap, (misplaced_tiles(new_state), new_state, path + [direction]))
+
+    return None
+
+# Main
+start = input("Enter start state (e.g., 724506831): ")
+
+if len(start) == 9 and set(start) == set('012345678'):
+    result = greedy_bfs(start)
+    if result is not None:
+        print("Solution found using heuristic (misplaced tiles)!")
+        print("Moves:", ' '.join(result))
+        print("Number of moves:", len(result))
+    else:
+        print("No solution exists for the given start state.")
+else:
+    print("Invalid input! Please enter a 9-digit string using digits 0-8 without repetition.")
