@@ -1,0 +1,46 @@
+Enter start state (e.g., 724506831): 283164705
+Start state:
+2 8 3
+1 6 4
+7   5
+
+Total states visited: 7
+Solution found!
+Moves: U U L D R
+Number of moves: 5
+1BM23CS307 Uzair
+
+Move 1: U
+2 8 3
+1   4
+7 6 5
+
+g(n) = 1, h(n) = 3, f(n) = g(n) + h(n) = 4
+
+Move 2: U
+2   3
+1 8 4
+7 6 5
+
+g(n) = 2, h(n) = 3, f(n) = g(n) + h(n) = 5
+
+Move 3: L
+  2 3
+1 8 4
+7 6 5
+
+g(n) = 3, h(n) = 2, f(n) = g(n) + h(n) = 5
+
+Move 4: D
+1 2 3
+  8 4
+7 6 5
+
+g(n) = 4, h(n) = 1, f(n) = g(n) + h(n) = 5
+
+Move 5: R
+1 2 3
+8   4
+7 6 5
+
+g(n) = 5, h(n) = 0, f(n) = g(n) + h(n) = 5
