@@ -88,10 +88,16 @@ if len(start) == 9 and set(start) == set('012345678'):
         print("1BM23CS307 Uzair\n")
 
         current_state = start
+        g = 0  # initialize cost so far
         for i, move in enumerate(result, 1):
-            current_state = move_tile(current_state, move)
+            new_state = move_tile(current_state, move)
+            g += 1
+            h = manhattan_distance(new_state)
+            f = g + h
             print(f"Move {i}: {move}")
-            print_state(current_state)
+            print_state(new_state)
+            print(f"g(n) = {g}, h(n) = {h}, f(n) = g(n) + h(n) = {f}\n")
+            current_state = new_state
     else:
         print("No solution exists for the given start state.")
 else:
