@@ -1,114 +1,81 @@
-Enter start state (e.g., 724506831): 123654087
+Enter start state (e.g., 724506831): 123678450
 Start state:
 1 2 3
-6 5 4
-  8 7
+6 7 8
+4 5  
 
-Total states visited: 782
+Total states visited: 21
 Solution found!
-Moves: R U R D L U L D R U R D L U L D R U R D
-Number of moves: 20
+Moves: L U L D R R U L D R
+Number of moves: 10
 1BM23CS307 Uzair
 
-Move 1: R
+Move 1: L
 1 2 3
-6 5 4
-8   7
+6 7 8
+4   5
+
+g(n) = 1, h(n) = 9, f(n) = g(n) + h(n) = 10
 
 Move 2: U
 1 2 3
-6   4
-8 5 7
+6   8
+4 7 5
 
-Move 3: R
+g(n) = 2, h(n) = 8, f(n) = g(n) + h(n) = 10
+
+Move 3: L
 1 2 3
-6 4  
-8 5 7
+  6 8
+4 7 5
+
+g(n) = 3, h(n) = 7, f(n) = g(n) + h(n) = 10
 
 Move 4: D
 1 2 3
-6 4 7
-8 5  
+4 6 8
+  7 5
 
-Move 5: L
-1 2 3
-6 4 7
-8   5
+g(n) = 4, h(n) = 6, f(n) = g(n) + h(n) = 10
 
-Move 6: U
+Move 5: R
 1 2 3
-6   7
-8 4 5
+4 6 8
+7   5
 
-Move 7: L
-1 2 3
-  6 7
-8 4 5
+g(n) = 5, h(n) = 5, f(n) = g(n) + h(n) = 10
 
-Move 8: D
+Move 6: R
 1 2 3
-8 6 7
-  4 5
+4 6 8
+7 5  
 
-Move 9: R
-1 2 3
-8 6 7
-4   5
+g(n) = 6, h(n) = 4, f(n) = g(n) + h(n) = 10
 
-Move 10: U
+Move 7: U
 1 2 3
-8   7
-4 6 5
-
-Move 11: R
-1 2 3
-8 7  
-4 6 5
-
-Move 12: D
-1 2 3
-8 7 5
 4 6  
+7 5 8
 
-Move 13: L
+g(n) = 7, h(n) = 3, f(n) = g(n) + h(n) = 10
+
+Move 8: L
 1 2 3
-8 7 5
 4   6
+7 5 8
 
-Move 14: U
+g(n) = 8, h(n) = 2, f(n) = g(n) + h(n) = 10
+
+Move 9: D
 1 2 3
-8   5
-4 7 6
+4 5 6
+7   8
 
-Move 15: L
-1 2 3
-  8 5
-4 7 6
+g(n) = 9, h(n) = 1, f(n) = g(n) + h(n) = 10
 
-Move 16: D
-1 2 3
-4 8 5
-  7 6
-
-Move 17: R
-1 2 3
-4 8 5
-7   6
-
-Move 18: U
-1 2 3
-4   5
-7 8 6
-
-Move 19: R
-1 2 3
-4 5  
-7 8 6
-
-Move 20: D
+Move 10: R
 1 2 3
 4 5 6
 7 8  
 
-
-=== Code Execution Successful ===
+g(n) = 10, h(n) = 0, f(n) = g(n) + h(n) = 10
