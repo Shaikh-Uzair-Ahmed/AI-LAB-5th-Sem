@@ -1,0 +1,6 @@
+Enter number of queens (N): 8
+✅ Solution found at step 675
+Position format:
+[ 3 0 4 7 5 2 6 1 ]
+Heuristic: 0
+1BM23CS307 Uzair
