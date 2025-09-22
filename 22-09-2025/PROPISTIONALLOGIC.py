@@ -29,7 +29,6 @@ class Symbol:
     def __repr__(self):
         return self.name
 
-
 class Not:
     def __init__(self, operand):
         self.operand = operand
@@ -42,6 +41,9 @@ class Not:
 
     def __repr__(self):
         return f"~{self.operand}"
+
+    def __invert__(self):  # allow ~~A
+        return Not(self)
 
 
 class And:
@@ -57,6 +59,9 @@ class And:
     def __repr__(self):
         return f"({self.left} & {self.right})"
 
+    def __invert__(self):  # allow ~(A & B)
+        return Not(self)
+
 
 class Or:
     def __init__(self, left, right):
@@ -70,6 +75,9 @@ class Or:
 
     def __repr__(self):
         return f"({self.left} | {self.right})"
+
+    def __invert__(self):  # allow ~(A | B)
+        return Not(self)
 
 
 # ----------------- Truth Table Entailment -----------------
@@ -116,16 +124,21 @@ def print_truth_table(kb, alpha, symbols):
 
 
 # ----------------- Example -----------------
-P = Symbol("P")
-Q = Symbol("Q")
+S = Symbol("S")
+C = Symbol("C")
+T = Symbol("T")
+
+
+c = T | ~T
 
 # KB: P → Q
-kb = P | Q & P
+kb1 = ~ (S|T)
 # Query: Q
-alpha = Q | P
+alpha1 = S & T 
 
-print("Knowledge Base:", kb)
-print("Query:", alpha)
+
+print("Knowledge Base:", kb1)
+print("Query:", alpha1)
 print()
-result = tt_entails(kb, alpha, show_table=True)
+result = tt_entails(kb1, alpha1, show_table=True)
 print("Does KB entail Query?", result)
