@@ -1,0 +1,11 @@
+Knowledge Base: (P | (Q & P))
+Query: (Q | P)
+
+  P   |   Q   |  KB   | Query
+----------------------------
+False | False | False | False
+False | True  | False | True 
+True  | False | True  | True 
+True  | True  | True  | True 
+
+Does KB entail Query? True
