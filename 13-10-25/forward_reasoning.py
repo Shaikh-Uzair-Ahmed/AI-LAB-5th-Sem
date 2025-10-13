@@ -17,5 +17,6 @@ forward_reasoning(facts)
 # Output the result based on the fact derived
 if facts.get('Crime(Robert)', False):
     print("Robert is a criminal.")
+    print("Uzair 1BM23CS307")
 else:
     print("Robert is not a criminal.")
