@@ -1,0 +1,3 @@
+Most General Unifier (MGU):
+{'Z': 'b', 'X': ('f', 'Y'), 'Y': ('g', 'Z')}
+1BM23CS307 UZAIR
