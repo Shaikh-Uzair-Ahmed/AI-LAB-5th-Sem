@@ -1,0 +1,9 @@
+
+Knowledge Base CNF Clauses:
+   ~Parent(x,y)|Ancestor(x,y)
+   Parent(John,Mary)
+   Parent(Mary,Sam)
+   ~Parent(x,y)|~Ancestor(y,z)|Ancestor(x,z)
+
+Query: Ancestor(John, Sam) => TRUE
+1BM23CS307 Uzair
