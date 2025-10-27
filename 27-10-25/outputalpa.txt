@@ -1,0 +1,1 @@
+Best value for maximizer: 3
